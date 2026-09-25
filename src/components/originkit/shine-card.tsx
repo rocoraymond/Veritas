@@ -153,6 +153,7 @@ export function ShineCard(props: ShineCardProps) {
 
     const root = rootRef.current!;
     function onMove(e: PointerEvent) {
+      if (e.pointerType === 'touch') return;
       const L = liveRef.current;
       if (!L.tilt) return;
       const rect = root.getBoundingClientRect();

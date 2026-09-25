@@ -35,7 +35,7 @@ export function HeaderNav() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-5 sm:px-8 md:px-12 py-3.5 md:py-4 bg-[#0E0E0D]/90 backdrop-blur-md border-b border-white/5 transition-all">
+      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 sm:px-8 md:px-12 py-3 sm:py-4 bg-[#0E0E0D]/90 backdrop-blur-md border-b border-white/5 transition-all">
         {/* Brand Identity */}
         <a href="#" className="flex items-center gap-2.5 sm:gap-3 group">
           <img

@@ -77,23 +77,24 @@ export function MaterialitySection() {
                   return (
                     <button
                       key={study.id}
+                      data-testid="material-option-btn"
                       onClick={() => setActiveMaterial(study)}
-                      className={`text-left p-4.5 rounded-sm transition-all duration-300 flex items-center justify-between ${
+                      className={`text-left p-3.5 sm:p-4.5 rounded-sm transition-all duration-300 flex items-center justify-between gap-3 sm:gap-4 ${
                         isSelected
-                          ? 'bg-[#181816] text-ivory shadow-lg'
+                          ? 'bg-[#181816] text-ivory shadow-lg ring-1 ring-gold/30'
                           : 'bg-[#111110] text-slate hover:bg-[#151514] hover:text-slate-light'
                       }`}
                     >
-                      <div>
-                        <span className="font-serif text-sm md:text-base block text-ivory">
+                      <div data-testid="material-text-container" className="min-w-0 flex-1">
+                        <span className="font-serif text-xs sm:text-base block text-ivory leading-snug break-words">
                           {study.materialName}
                         </span>
-                        <span className="font-sans text-xs text-slate-dark block pt-0.5">
+                        <span className="font-sans text-[11px] sm:text-xs text-slate-dark block pt-0.5 leading-snug break-words">
                           {study.surfaceFinish}
                         </span>
                       </div>
                       <div
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        className={`w-2 h-2 rounded-full shrink-0 transition-all duration-300 ${
                           isSelected ? 'bg-gold scale-125' : 'bg-[#252522]'
                         }`}
                       ></div>

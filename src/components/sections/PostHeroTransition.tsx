@@ -71,9 +71,9 @@ export function PostHeroTransition() {
                 />
               </ScrollReveal>
 
-              {/* Minimal Editorial Floating Caption (No heavy border) */}
-              <div className="absolute -bottom-6 left-0 sm:-left-4 bg-[#111110]/95 p-5 max-w-xs shadow-2xl rounded-sm">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-gold mb-1">
+              {/* Minimal Editorial Floating Caption (Responsive Positioning) */}
+              <div className="relative mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:left-0 bg-[#111110]/95 p-4 sm:p-5 max-w-xs shadow-2xl rounded-sm border border-white/5">
+                <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-gold mb-1">
                   Reference Architecture
                 </p>
                 <p className="font-sans text-xs text-slate-light font-medium leading-relaxed">

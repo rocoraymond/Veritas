@@ -77,20 +77,20 @@ export function CraftsmanshipSection() {
                     <button
                       key={study.id}
                       onClick={() => setActiveMacro(study)}
-                      className={`text-left p-4 rounded-sm transition-all duration-300 ${
+                      className={`text-left p-3 sm:p-4 rounded-sm transition-all duration-300 ${
                         isSelected
-                          ? 'bg-[#181816] text-ivory shadow-lg'
+                          ? 'bg-[#181816] text-ivory shadow-lg ring-1 ring-gold/30'
                           : 'bg-[#10100F] text-slate hover:bg-[#141413] hover:text-slate-light'
                       }`}
                     >
-                      <span className="font-mono text-[10px] text-gold block mb-1">
+                      <span className="font-mono text-[9px] sm:text-[10px] text-gold block mb-1 uppercase tracking-wider">
                         {study.id === 'macro-bezel-brushing'
                           ? 'Finishing Geometry'
                           : study.id === 'macro-ceramic-metallurgy'
                           ? 'Ceramic Metallurgy'
                           : 'Case Tolerances'}
                       </span>
-                      <span className="font-serif text-xs block truncate">
+                      <span className="font-serif text-xs sm:text-sm block leading-snug break-words">
                         {study.title}
                       </span>
                     </button>

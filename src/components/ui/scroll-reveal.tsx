@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-interface ScrollRevealProps {
+interface ScrollRevealProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   delay?: number;
@@ -24,6 +24,7 @@ export function ScrollReveal({
   scale = 1,
   scrub = false,
   duration = 1.1,
+  ...restProps
 }: ScrollRevealProps) {
   const elRef = useRef<HTMLDivElement>(null);
 
@@ -84,7 +85,7 @@ export function ScrollReveal({
   }, [direction, distance, delay, scale, scrub, duration]);
 
   return (
-    <div ref={elRef} className={className}>
+    <div ref={elRef} className={className} {...restProps}>
       {children}
     </div>
   );

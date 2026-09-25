@@ -9,6 +9,8 @@ vi.mock('@/components/sections/MaterialitySection', () => ({ MaterialitySection:
 vi.mock('@/components/sections/ChronicleSection', () => ({ ChronicleSection: () => null }));
 vi.mock('@/components/sections/PrivateClientSection', () => ({ PrivateClientSection: () => null }));
 vi.mock('@/components/sections/PostHeroTransition', () => ({ PostHeroTransition: () => null }));
+vi.mock('@/components/layout/HeaderNav', () => ({ HeaderNav: () => null }));
+vi.mock('@/components/layout/Footer', () => ({ Footer: () => null }));
 
 // Define matchMedia and ResizeObserver before any component importing gsap/lenis plugins
 if (typeof window !== 'undefined') {

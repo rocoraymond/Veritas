@@ -239,13 +239,16 @@ export function BackgroundSqueezeSection() {
         />
       </div>
 
-      {/* Bottom Transition Area (Clean Editorial Bar Revealed Under Squeeze - Audemars Piguet image removed) */}
-      <div className="relative z-10 w-full px-6 sm:px-12 md:px-16 pb-8 md:pb-12 pt-6 sm:pt-12 flex items-center justify-between border-t border-black/5">
-        <div className="space-y-1 text-black/70">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] block">
+      {/* Bottom Transition Area (Clean Editorial Bar Revealed Under Squeeze) */}
+      <div
+        data-testid="squeeze-bottom-bar"
+        className="relative z-10 w-full px-5 sm:px-12 md:px-16 pb-8 md:pb-12 pt-6 sm:pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 border-t border-black/5"
+      >
+        <div className="space-y-0.5 text-black/80">
+          <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] block">
             Case Compression Index
           </span>
-          <span className="font-serif text-xs sm:text-sm italic text-black/90">
+          <span className="font-serif text-xs sm:text-sm italic text-black/90 block">
             0.02 mm Architectural Tolerance
           </span>
         </div>
@@ -254,10 +257,10 @@ export function BackgroundSqueezeSection() {
           href="#collection"
           className="group flex items-center gap-2.5 sm:gap-3 text-black hover:text-black/70 transition-colors"
         >
-          <span className="font-serif text-sm sm:text-base md:text-xl tracking-wide uppercase font-light">
+          <span className="font-serif text-xs sm:text-base md:text-xl tracking-wide uppercase font-light">
             Curated References
           </span>
-          <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black text-white flex items-center justify-center transition-transform group-hover:translate-y-0.5 shadow-md">
+          <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black text-white flex items-center justify-center transition-transform group-hover:translate-y-0.5 shadow-md shrink-0">
             <ArrowDownRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </span>
         </a>

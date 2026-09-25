@@ -75,36 +75,37 @@ export function PhilosophySection() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal direction="up" delay={0.2} className="pt-6 grid grid-cols-2 gap-6 text-xs">
-              <div className="space-y-1">
+            <ScrollReveal direction="up" delay={0.2} className="pt-4 sm:pt-6 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6 text-xs">
+              <div className="space-y-1 bg-white/[0.02] p-3 rounded border border-white/5">
                 <span className="text-slate-dark block font-mono uppercase tracking-wider text-[10px]">Guilloché Relief</span>
-                <span className="text-ivory font-medium text-sm">Hand-Turned Basketweave</span>
+                <span className="text-ivory font-medium text-xs sm:text-sm leading-snug block">Hand-Turned Basketweave</span>
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1 bg-white/[0.02] p-3 rounded border border-white/5">
                 <span className="text-slate-dark block font-mono uppercase tracking-wider text-[10px]">Temporal Disc</span>
-                <span className="text-ivory font-medium text-sm">24-City Meridian Ring</span>
+                <span className="text-ivory font-medium text-xs sm:text-sm leading-snug block">24-City Meridian Ring</span>
               </div>
             </ScrollReveal>
           </div>
         </div>
 
         {/* Four Architectural Pillars (Borderless Clean Tones) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {PILLARS.map((pillar, idx) => (
             <ScrollReveal
               key={pillar.num}
               direction="up"
               delay={idx * 0.1}
-              className="p-8 bg-[#0E0E0D] hover:bg-[#131312] transition-colors duration-400 rounded-sm flex flex-col justify-between group"
+              data-testid="philosophy-pillar-card"
+              className="p-5 sm:p-6 md:p-8 bg-[#0E0E0D] hover:bg-[#131312] transition-colors duration-300 rounded-sm flex flex-col justify-between group border border-white/[0.03]"
             >
-              <div className="space-y-4">
-                <span className="font-mono text-xs text-gold/70 group-hover:text-gold transition-colors">
+              <div className="space-y-3 sm:space-y-4">
+                <span className="font-mono text-xs text-gold/70 group-hover:text-gold transition-colors block">
                   {pillar.num}
                 </span>
-                <h4 className="font-serif text-xl text-ivory tracking-wide">
+                <h4 className="font-serif text-lg sm:text-xl text-ivory tracking-wide leading-tight">
                   {pillar.title}
                 </h4>
-                <p className="font-sans text-xs md:text-sm text-slate leading-relaxed">
+                <p className="font-sans text-xs sm:text-sm text-slate leading-relaxed">
                   {pillar.detail}
                 </p>
               </div>

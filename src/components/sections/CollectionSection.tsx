@@ -312,7 +312,7 @@ export function CollectionSection() {
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUpOrLeave}
               onMouseLeave={handleMouseUpOrLeave}
-              className={`flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory no-scrollbar -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-0 md:px-0 select-none ${
+              className={`flex gap-3 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory no-scrollbar -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-0 md:px-0 select-none ${
                 isDragging ? 'cursor-grabbing select-none' : 'cursor-grab'
               }`}
             >
@@ -321,24 +321,25 @@ export function CollectionSection() {
                 return (
                   <div
                     key={study.id}
+                    data-testid="gallery-card-item"
                     onClick={() => handleCardClick(study)}
-                    className={`flex-shrink-0 w-[260px] sm:w-[300px] snap-start rounded-lg p-5 transition-all duration-300 flex flex-col justify-between ${
+                    className={`flex-shrink-0 w-[240px] xs:w-[260px] sm:w-[300px] snap-start rounded-lg p-4 sm:p-5 transition-all duration-300 flex flex-col justify-between break-words leading-normal ${
                       isActive
                         ? 'bg-[#181816] shadow-xl shadow-black/60 ring-1 ring-gold/50'
                         : 'bg-[#111110] hover:bg-[#151513] text-slate'
                     }`}
                   >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className={`font-mono text-[11px] uppercase tracking-wider ${isActive ? 'text-gold font-bold' : 'text-slate-dark'}`}>
+                    <div className="space-y-2.5 sm:space-y-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-wider shrink-0 ${isActive ? 'text-gold font-bold' : 'text-slate-dark'}`}>
                           {study.tag}
                         </span>
-                        <span className="font-mono text-[10px] text-slate-dark uppercase bg-white/5 px-2 py-0.5 rounded-sm">
+                        <span className="font-mono text-[9px] sm:text-[10px] text-slate-dark uppercase bg-white/5 px-2 py-0.5 rounded-sm truncate max-w-[110px]">
                           {study.category}
                         </span>
                       </div>
 
-                      <div className="h-[180px] sm:h-[210px] flex items-center justify-center py-2 pointer-events-none">
+                      <div className="h-[160px] sm:h-[210px] flex items-center justify-center py-2 pointer-events-none">
                         <img
                           src={study.image}
                           alt={study.title}
@@ -351,11 +352,11 @@ export function CollectionSection() {
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-white/5 space-y-1.5 pointer-events-none">
-                      <h4 className="font-serif text-sm sm:text-base text-ivory line-clamp-1">
+                    <div className="pt-3 sm:pt-4 border-t border-white/5 space-y-1 sm:space-y-1.5 pointer-events-none">
+                      <h4 className="font-serif text-xs sm:text-base text-ivory line-clamp-1 leading-snug break-words">
                         {study.title}
                       </h4>
-                      <p className="text-[11px] font-sans text-slate line-clamp-1">
+                      <p className="text-[10px] sm:text-[11px] font-sans text-slate line-clamp-1 break-words">
                         {study.caseProfile}
                       </p>
                     </div>
@@ -441,58 +442,61 @@ export function CollectionSection() {
             radius="8px"
             className="shadow-2xl"
           >
-            <div className="p-6 sm:p-10 md:p-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            <div className="p-5 sm:p-10 md:p-14 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-14 items-center">
               {/* Left Column: Watch Visual with Zero-Flicker Smooth Transition */}
-              <div className="lg:col-span-6 flex flex-col items-center justify-center min-h-[340px] sm:min-h-[420px] relative">
+              <div className="lg:col-span-6 flex flex-col items-center justify-center min-h-[250px] sm:min-h-[340px] md:min-h-[420px] relative">
                 <SmoothWatchImage
                   src={activeStudy.image}
                   alt={activeStudy.title}
-                  className="max-h-[320px] sm:max-h-[400px] w-auto"
+                  className="max-h-[240px] sm:max-h-[320px] md:max-h-[400px] w-auto"
                 />
               </div>
 
               {/* Right Column: In-Depth Architectural Analysis */}
-              <div className="lg:col-span-6 space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-sm">
+              <div className="lg:col-span-6 space-y-5 sm:space-y-6">
+                <div 
+                  data-testid="inspection-header"
+                  className="flex flex-col xs:flex-row sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4"
+                >
+                  <span className="self-start font-mono text-[10px] sm:text-xs uppercase tracking-widest text-gold bg-gold/10 px-2.5 sm:px-3 py-1 rounded-sm whitespace-nowrap">
                     {activeStudy.tag} · Detail Inspection
                   </span>
-                  <span className="font-mono text-[11px] text-slate-dark uppercase tracking-wider">
+                  <span className="font-mono text-[10px] sm:text-[11px] text-slate-dark uppercase tracking-wider">
                     {activeStudy.category} Architecture
                   </span>
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-ivory">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <h3 className="font-serif text-xl sm:text-3xl md:text-4xl text-ivory leading-tight sm:leading-snug break-words">
                     {activeStudy.title}
                   </h3>
-                  <span className="font-sans text-xs sm:text-sm text-gold-light tracking-widest uppercase block">
+                  <span className="font-sans text-[11px] sm:text-sm text-gold-light tracking-wider sm:tracking-widest uppercase block break-words">
                     {activeStudy.subtitle}
                   </span>
                 </div>
 
-                <p className="font-sans text-xs sm:text-sm text-slate leading-relaxed">
+                <p className="font-sans text-xs sm:text-sm text-slate leading-relaxed break-words">
                   {activeStudy.narrative}
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 text-xs">
-                  <div className="space-y-1 bg-white/[0.02] p-3 rounded">
-                    <span className="font-mono text-[10px] text-slate-dark uppercase block">Dial Treatment</span>
-                    <span className="text-ivory font-medium">{activeStudy.dialDescription}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 pt-1 sm:pt-2 text-xs">
+                  <div className="space-y-1 bg-white/[0.02] p-3 sm:p-3.5 rounded border border-white/5">
+                    <span className="font-mono text-[9px] sm:text-[10px] text-slate-dark uppercase tracking-wider block">Dial Treatment</span>
+                    <span className="text-ivory font-medium text-xs sm:text-sm leading-snug block break-words">{activeStudy.dialDescription}</span>
                   </div>
-                  <div className="space-y-1 bg-white/[0.02] p-3 rounded">
-                    <span className="font-mono text-[10px] text-slate-dark uppercase block">Case Geometry</span>
-                    <span className="text-ivory font-medium">{activeStudy.caseProfile}</span>
+                  <div className="space-y-1 bg-white/[0.02] p-3 sm:p-3.5 rounded border border-white/5">
+                    <span className="font-mono text-[9px] sm:text-[10px] text-slate-dark uppercase tracking-wider block">Case Geometry</span>
+                    <span className="text-ivory font-medium text-xs sm:text-sm leading-snug block break-words">{activeStudy.caseProfile}</span>
                   </div>
                 </div>
 
-                <div className="pt-4 flex items-center gap-4">
+                <div className="pt-2 sm:pt-4 flex items-center">
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-gold/10"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-gold/10"
                   >
                     <span>Inquire About Reference</span>
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="w-4 h-4 shrink-0" />
                   </a>
                 </div>
               </div>
